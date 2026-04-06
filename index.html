@@ -2,19 +2,17 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BattleCoin Demo</title>
+<title>BattleCoin</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   background: #0b0f1a;
   color: white;
   text-align: center;
 }
 
-/* MENU */
 .menu {
   padding-top: 50px;
 }
@@ -26,7 +24,6 @@ body {
   border: 2px solid #00d1ff;
   border-radius: 10px;
   cursor: pointer;
-  transition: 0.2s;
 }
 
 .card:hover {
@@ -37,14 +34,11 @@ body {
 button {
   margin-top: 20px;
   padding: 12px 25px;
-  border: none;
   background: #00d1ff;
-  color: black;
-  font-weight: bold;
+  border: none;
   cursor: pointer;
 }
 
-/* GAME */
 .game {
   display: none;
   width: 100vw;
@@ -120,7 +114,7 @@ button {
 
 <div class="game" id="game">
   <div class="top-bar">
-    <div id="lives">❤️❤️❤️❤️</div>
+    <div>❤️❤️❤️❤️</div>
     <div id="timer">03:00</div>
     <div id="info"></div>
   </div>
@@ -150,40 +144,38 @@ function selectArena(name) {
 
 function startGame() {
   if (!character || !arena) {
-    alert("Select character and arena!");
+    alert("Select both!");
     return;
   }
 
   document.getElementById("menu").style.display = "none";
   document.getElementById("game").style.display = "block";
 
-  document.getElementById("info").innerText = character + " | " + arena;
+  document.getElementById("info").innerText =
+    character + " | " + arena;
 
   startTimer();
 }
 
 function startTimer() {
   let time = 180;
-  let timer = document.getElementById("timer");
+  let el = document.getElementById("timer");
 
   setInterval(() => {
     let m = Math.floor(time / 60);
     let s = time % 60;
-    timer.innerText = m + ":" + (s < 10 ? "0" + s : s);
+    el.innerText = m + ":" + (s < 10 ? "0" + s : s);
     time--;
   }, 1000);
 }
 
-function useAbility(el, cooldown) {
+function useAbility(el, cd) {
   if (el.classList.contains("cooldown")) return;
 
   el.classList.add("cooldown");
-
-  setTimeout(() => {
-    el.classList.remove("cooldown");
-  }, cooldown);
+  setTimeout(() => el.classList.remove("cooldown"), cd);
 }
 </script>
 
 </body>
-</html>
+</h
