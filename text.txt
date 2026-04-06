@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BattleCoin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="menu">
+  <h1>BATTLECOIN</h1>
+
+  <h2>Select Character</h2>
+  <div class="characters">
+    <div class="card" onclick="selectCharacter('Fiery Fox')">🦊 Fiery Fox</div>
+    <div class="card" onclick="selectCharacter('Lunar Lynx')">🐱 Lunar Lynx</div>
+    <div class="card" onclick="selectCharacter('Mighty Moose')">🫎 Mighty Moose</div>
+  </div>
+
+  <h2>Select Arena</h2>
+  <div class="arenas">
+    <div class="card" onclick="selectArena('Ice Kingdom')">❄️ Ice Kingdom</div>
+    <div class="card" onclick="selectArena('Doom Dungeon')">🔥 Doom Dungeon</div>
+  </div>
+
+  <button onclick="startGame()">Start Match</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
